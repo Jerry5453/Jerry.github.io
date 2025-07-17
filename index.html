@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025装修全流程实战指南｜材料+工艺+避坑</title>
+    <style>
+        :root {
+            --apple-bg: #f5f5f7;
+            --card-bg: #ffffff;
+            --primary: #0071e3;
+            --warning: #ff9500;
+            --critical: #ff3b30;
+            --text-main: #1d1d1f;
+            --text-secondary: #86868b;
+            --success: #34c759;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--apple-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 40px 0 30px;
+            border-bottom: 1px solid #d2d2d7;
+        }
+        h1 {
+            font-size: 42px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+        }
+        .subtitle {
+            font-size: 21px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-title {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            color: var(--primary);
+        }
+        .card-title svg {
+            margin-right: 12px;
+        }
+        .phase {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e0e0e6;
+        }
+        .phase:last-child {
+            border-bottom: none;
+        }
+        .phase h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+        }
+        .phase h3:before {
+            content: "•";
+            color: var(--primary);
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        .material-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 12px 0;
+        }
+        .material-item {
+            padding: 10px;
+            background: #f8f9ff;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .warning {
+            background: #fff8f8;
+            border-left: 3px solid var(--critical);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .tip {
+            background: #f8f9ff;
+            border-left: 3px solid var(--primary);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .data-highlight {
+            color: var(--primary);
+            font-weight: 600;
+            background: #e6f2ff;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background-color: #f8f9ff;
+            font-weight: 600;
+        }
+        .footer {
+            text-align: center;
+            padding: 40px 0 20px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 8px;
+        }
+        .badge-warning {
+            background: #fff0e6;
+            color: #ff5c00;
+        }
+        .badge-success {
+            background: #e6f7ee;
+            color: #06a561;
+        }
+        .process-flow {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px 0;
+            margin: 20px 0;
+        }
+        .process-step {
+            min-width: 160px;
+            padding: 15px;
+            background: white;
+            border-radius: 12px;
+            margin-right: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .step-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+            .subtitle {
+                font-size: 18px;
+            }
+            .card-title {
+                font-size: 22px;
+            }
+            .material-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>2025装修全流程实战指南</h1>
+        <div class="subtitle">材料选择 × 施工工艺 × 避坑要点｜节省30%预算，缩短40%工期</div>
+    </div>
+
+    <!-- 阶段1：准备阶段 -->
+    <div class="card">
+        <div class="card-title">📋 准备阶段｜预算规划与材料预购</div>
+        
+        <div class="phase">
+            <h3>核心任务</h3>
+            <ul>
+                <li>需求诊断：记录家庭常住人口、生活习惯、风格偏好（原木/极简/轻奢）</li>
+                <li>预算制定：用<span class="data-highlight">微信“蜡笔装修报价计算器”</span>生成明细清单（100㎡半包参考价：6-9万）</li>
+                <li>团队选择：优先本地有5年以上经验施工队（水电/瓦工需持证）</li>
+            </ul>
+        </div>
+        
+        <div class="phase">
+            <h3>关键材料预购清单</h3>
+            <div class="material-grid">
+                <div class="material-item">中央空调（水电前订）</div>
+                <div class="material-item">断桥铝窗（K值≤1.8）</div>
+                <div class="material-item">防盗门（定制30天）</div>
+                <div class="material-item">橱柜初测（出水电图）</div>
+            </div>
+        </div>
+        
+        <div class="phase">
+            <h3>致命陷阱与避坑方案</h3>
+            <div class="warning">
+                <strong>低价套餐陷阱：</strong>警惕“12万全包”套餐，后续加收安装费/运费（如南京博胜装饰投诉案例）
+            </div>
+            <div class="tip">
+                <strong>合同补充条款：</strong>注明“闭口合同”“材料批次检测报告”（防乳胶漆送检样品合格但批量不合格）
+            </div>
+        </div>
+    </div>
+
+    <!-- 阶段2：拆改阶段 -->
+    <div class="card">
+        <div class="card-title">🔨 拆改阶段｜墙体改造与基层处理</div>
+        
+        <div class="phase">
+            <h3>施工流程</h3>
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="step-title">成品保护</div>
+                    <div class="step-desc">电梯→入户门→走廊</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-title">拆除非承重墙</div>
+                    <div class="step-desc">自上而下拆除</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-title">新建墙体</div>
+                    <div class="step-desc">轻体砖+挂钢丝网</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-title">垃圾清运</div>
+                    <div class="step-desc">提前谈妥包干价</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="phase">
+            <h3>材料选购指南</h3>
+            <table>
+                <tr>
+                    <th>材料类型</th>
+                    <th>推荐选择</th>
+                    <th>避坑提醒</th>
+                </tr>
+                <tr>
+                    <td>砌墙砖</td>
+                    <td>加气块（厚度≥10cm）</td>
+                    <td>禁用空心砖（承重力差）</td>
+                </tr>
+                <tr>
+                    <td>隔音材料</td>
+                    <td>橡塑隔音棉（2cm厚）</td>
+                    <td>避开玻璃纤维棉（氧化后致癌）</td>
+                </tr>
+                <tr>
+                    <td>临时设施</td>
+                    <td>临时马桶+扫把</td>
+                    <td>工人进场前备好，避免随意排污</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="phase">
+            <h3>工艺要点</h3>
+            <div class="tip">
+                <strong>新建墙体工艺：</strong>植筋+挂钢丝网（防开裂），费用+¥15/㎡
+            </div>
+            <div class="warning">
+                <strong>承重墙误拆：</strong>罚款5-10万！识别方法：工程图中黑色墙体，拆前用金属探测仪检查钢筋
+            </div>
+        </div>
+    </div>
+
+    <!-- 阶段3：水电改造 -->
+    <div class="card">
+        <div class="card-title">💡 水电改造｜隐蔽工程核心</div>
+        
+        <div class="phase">
+            <h3>材料选购标准</h3>
+            <ul>
+                <li><span class="data-highlight">电线：</span>国标阻燃线（远东/特变电工），照明2.5mm²、空调4mm²</li>
+                <li><span class="data-highlight">水管：</span>PPR抗菌管（日丰/伟星），冷热水管分色（蓝/红）</li>
+                <li><span class="data-highlight">线管：</span>PVC阻燃管（壁厚≥1.8mm）</li>
+            </ul>
+        </div>
+        
+        <div class="phase">
+            <h3>施工工艺规范</h3>
+            <table>
+                <tr>
+                    <th>项目</th>
+                    <th>标准工艺</th>
+                    <th>违规风险</th>
+                </tr>
+                <tr>
+                    <td>电路改造</td>
+                    <td>活线工艺（单管穿线≤3根）</td>
+                    <td>死线无法维修，需砸墙</td>
+                </tr>
+                <tr>
+                    <td>水路走顶</td>
+                    <td>电上水下，热水管包保温棉</td>
+                    <td>漏水浸泡吊顶+地板</td>
+                </tr>
+                <tr>
+                    <td>防水工程</td>
+                    <td>淋浴区刷高≥1.8m，其他区域≥30cm</td>
+                    <td>楼下渗水索赔2万+</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="phase">
+            <h3>关键避坑点</h3>
+            <div class="warning">
+                <strong>按米计价陷阱：</strong>签闭口合同！写明100㎡水电≤1.2万（暗管55元/米，明管45元/米）
+            </div>
+            <div class="tip">
+                <strong>验收必做：</strong>水路打压测试（0.8MPa稳30分钟），拍照留存管线全景图
+            </div>
+        </div>
+    </div>
+
+    <!-- 阶段4：瓦工阶段 -->
+    <div class="card">
+        <div class="card-title">🧱 瓦工阶段｜防水与铺贴工艺</div>
+        
+        <div class="phase">
+            <h3>材料选购指南</h3>
+            <div class="material-grid">
+                <div class="material-item">瓷砖：广东产优等品（吸水率&lt;0.5%）</div>
+                <div class="material-item">地漏：铜质T型/深水封</div>
+                <div class="material-item">防水涂料：JS复合型（延展性好）</div>
+                <div class="material-item">止逆阀：不锈钢阀体</div>
+            </div>
+        </div>
+        
+        <div class="phase">
+            <h3>核心工艺标准</h3>
+            <ul>
+                <li><span class="data-highlight">闭水试验：</span>48小时亲自检查楼下，防水用量≥2kg/㎡</li>
+                <li><span class="data-highlight">瓷砖铺贴：</span>
+                    <ul>
+                        <li>泡水2小时（防空鼓）</li>
+                        <li>墙压地工艺（防渗水）</li>
+                        <li>留缝2mm（美缝剂填充）</li>
+                    </ul>
+                </li>
+                <li><span class="data-highlight">阳角处理：</span>海棠角切割（比包边条更耐用）</li>
+            </ul>
+        </div>
+        
+        <div class="phase">
+            <h3>高频踩坑点</h3>
+            <div class="warning">
+                <strong>假通铺砖：</strong>要求整砖套割门洞，损耗率＞8%需重审排版
+            </div>
+            <div class="warning">
+                <strong>厨房防水智商税：</strong>无地漏不必做防水！重点检查角阀/软管质量
+            </div>
+        </div>
+    </div>
+
+    <!-- 阶段5：木工与油工 -->
+    <div class="card">
+        <div class="card-title">🪚 木工与油工｜吊顶与墙面处理</div>
+        
+        <div class="phase">
+            <h3>材料选择标准</h3>
+            <table>
+                <tr>
+                    <th>项目</th>
+                    <th>推荐材料</th>
+                    <th>避雷产品</th>
+                </tr>
+                <tr>
+                    <td>吊顶龙骨</td>
+                    <td>轻钢龙骨（寿命＞20年）</td>
+                    <td>木龙骨（受潮变形）</td>
+                </tr>
+                <tr>
+                    <td>腻子</td>
+                    <td>耐水腻子（美巢JG/T 298）</td>
+                    <td>需掺胶水的劣质腻子</td>
+                </tr>
+                <tr>
+                    <td>乳胶漆</td>
+                    <td>十环认证（立邦抗甲醛）</td>
+                    <td>“0甲醛”低价漆（实测超标）</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="phase">
+            <h3>关键施工工艺</h3>
+            <ul>
+                <li><span class="data-highlight">吊顶工艺：</span>
+                    <ul>
+                        <li>转角处L型整板切割（防开裂）</li>
+                        <li>检修口预留（中央空调/新风）</li>
+                    </ul>
+                </li>
+                <li><span class="data-highlight">墙面找平：</span>
+                    <ul>
+                        <li>冲筋找平（极简风必做，工差±1mm）</li>
+                        <li>新旧墙挂纤维网（防开裂）</li>
+                    </ul>
+                </li>
+                <li><span class="data-highlight">油漆工艺：</span>
+                    <ul>
+                        <li>滚涂：性价比首选（人工+材料15-20元/㎡）</li>
+                        <li>喷涂：适合极简风（损耗+20%）</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="phase">
+            <h3>致命错误规避</h3>
+            <div class="warning">
+                <strong>偷加胶水：</strong>全程监工！禁止工人在腻子中掺801胶（甲醛超标3-5倍）
+            </div>
+            <div class="tip">
+                <strong>验收技巧：</strong>夜间用手电筒侧照墙面，无阴影说明平整度达标
+            </div>
+        </div>
+    </div>
+
+    <!-- 阶段6：安装与收尾 -->
+    <div class="card">
+        <div class="card-title">🚪 安装与收尾｜科学除醛与验收</div>
+        
+        <div class="phase">
+            <h3>正确安装顺序</h3>
+            <ol>
+                <li>厨卫吊顶 → 预埋烟道</li>
+                <li>橱柜 → 油烟机灶具（同步安装）</li>
+                <li>室内门 → 木地板</li>
+                <li>开关插座 → 灯具 → 卫浴五金</li>
+            </ol>
+        </div>
+        
+        <div class="phase">
+            <h3>环保控制要点</h3>
+            <ul>
+                <li><span class="data-highlight">通风：</span>刷漆后开窗缝≤5cm（3天后全开），避免龟裂</li>
+                <li><span class="data-highlight">除醛：</span>通风≥3个月（过夏季最佳），板材甲醛释放量：E1≤0.124mg/m³</li>
+                <li><span class="data-highlight">检测：</span>入住前做CMA认证检测（标准：甲醛≤0.08mg/m³）</li>
+            </ul>
+        </div>
+        
+        <div class="phase">
+            <h3>验收标准表</h3>
+            <table>
+                <tr>
+                    <th>项目</th>
+                    <th>合格标准</th>
+                    <th>工具</th>
+                </tr>
+                <tr>
+                    <td>瓷砖空鼓</td>
+                    <td>单片≤5%，整面墙≤3%</td>
+                    <td>空鼓锤</td>
+                </tr>
+                <tr>
+                    <td>墙面平整度</td>
+                    <td>2m靠尺误差≤3mm</td>
+                    <td>2米靠尺</td>
+                </tr>
+                <tr>
+                    <td>排水坡度</td>
+                    <td>卫生间坡度≥2%</td>
+                    <td>乒乓球测试</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- 紧急补救清单 -->
+    <div class="card">
+        <div class="card-title">⚠️ 紧急补救清单｜高频问题解决方案</div>
+        <table>
+            <tr>
+                <th>问题现象</th>
+                <th>原因分析</th>
+                <th>解决方案</th>
+            </tr>
+            <tr>
+                <td>美缝发黑发霉</td>
+                <td>劣质填缝剂+潮湿环境</td>
+                <td>铲除重做聚脲彩砂（防霉性↑300%）</td>
+            </tr>
+            <tr>
+                <td>墙面开裂</td>
+                <td>未挂网或腻子过厚</td>
+                <td>V型开槽→贴网格布→重新批刮</td>
+            </tr>
+            <tr>
+                <td>卫生间返臭</td>
+                <td>地漏密封芯失效</td>
+                <td>更换潜水艇地漏芯（密封型）</td>
+            </tr>
+            <tr>
+                <td>吊顶变形</td>
+                <td>木龙骨受潮</td>
+                <td>拆除→更换轻钢龙骨</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 装修科学指南 | 整合20+权威工程标准与上千业主实战经验</p>
+        <p>数据来源：蜡笔装修、华美乐装饰、一起装修网等平台</p>
+    </div>
+</body>
+</html>
